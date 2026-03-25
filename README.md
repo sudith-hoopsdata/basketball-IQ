@@ -1,5 +1,5 @@
-# basketball-IQ
-A PyQt5 based program that acts as a scouting tool. Tracking non-box score basketball metrics that makes team and player scouting easier.
+# Basketball-IQ
+A Python-based reasoning engine that acts as an autonomous scouting tool. Working to track non-box score basketball metrics to make high-level evaluation scalable.
 # Vision-Based Basketball IQ Engine (Contextual Analytics)
 
 ### The Problem
@@ -9,21 +9,25 @@ Traditional basketball analytics rely on "box score" events (points, rebounds, a
 My project is a **Contextual Data Acquisition Engine** designed to bridge the gap between raw broadcast footage and structured datasets.
 
 **Key Technical Features:**
-* **Multi-Player Tagging:** A custom PyQt5 interface allowing for simultaneous event-attribution across multiple player IDs (e.g., tagging a P&R screener and ball-handler in one action).
-* **Non-Linear Video Control:** Integrated OpenCV buffering with frame-accurate keyboard shortcuts for efficient film scrubbing.
-* **Proprietary IQ Rubric:** A 28-point logic framework that weights player decisions based on shot-clock pressure, defensive positioning, and historical efficiency (e.g., Pass to >35% 3PT Shooter).
+* **NBA API V3 Integration:** A streamlined data acquisition pipeline that fetches live play-by-play data, providing the foundational "Ground Truth" for every possession.
+* **Proprietary 28-Point IQ Rubric:** A multi-variable logic framework that weights player decisions based on shot-clock pressure, defensive positioning, teammate efficiency, and more.
+* **AI Training Pipeline:** An automated data formatter that translates hardcoded scouting logic into JSONL conversational datasets, specifically designed to fine tune Large Language Models on elite basketball philosopy.
 
 ### Future Roadmap: From Manual to Automated
-This engine serves as the **Ground Truth Generator**. By manually tagging elite college and NBA film, I am building a proprietary dataset to:
-1. Fine-tune a **Vision Transformer (ViT)** to recognize player jersey numbers in broadcast frames.
-2. Utilize **GPT-4o / Gemini 1.5 Pro** via API to analyze offensive "spacing" and "gravity" from single-angle video.
+This engine currently serves as the Decision-Making Brain. By grading thousands of real NBA possessions, I am building the proprietary dataset required to:
+1. **Automate the Eyes**: Integrate YOLOv8 and ByteTrack to extract spatial coordinates directly from raw broadcast footage, repalcing the need for API-based event data.
+2. **Fine-Tune a Custom GPT**: Move from rigid Python logic to a fine-tuned LLM that "intuitively" understands spacing, gravity, and read quality and thinks like a basketball scout. All from natural language descriptions of video frames.
 
 ### Summary
-I am building a platform that captures the 'hidden' layer of basketball—the decision-making that basic statistics miss. By merging my background as a basketball player with custom software development, I’ve created a framework that evaluates Process over Result.
-Traditionally, scouts spend hours of their day manually tagging film. My product digitizes this workflow into a structured scoring system for **Basketball IQ**. While a standard engineer can write code, they lack the expertise to define what a 'Correct Read' looks like in a high-level Pick & Roll. This tool is the bridge between elite basketball intuition and scalable data science. My ultimate goal is to move from this 'Human-in-the-Loop' tagging system to a fully automated AI model that can scout a player's IQ instantly from any broadcast feed.
+I am building a platform that captures the "hidden" layer of basketball—the decision-making that basic statistics miss. By merging my background as a basketball player with custom software development, I’ve created a framework that evaluates Process over Result.
+
+While a standard engineer can write code, they often lack the expertise to define what a "Correct Read" looks like in a high-level Pick & Roll. This tool is the bridge between elite basketball intuition and scalable data science. My ultimate goal is to move from this structured data ingestion to a fully autonomous AI scout that can evaluate a player's IQ instantly from any gym in the world.
 
 ## How to Run
 1. Ensure you have Python installed.
-2. Install dependencies: `pip install PyQt5 opencv-python pandas`
-3. Clone this repo and add your own `.mp4` or `.webm` basketball film.
-4. Update the file path in `iq_scout_engine.py` and run: `python iq_scout_engine.py`
+2. Install dependencies: `bash pip install pandas nba_api`
+3. Fetch real-world game data: python3 fetch_real_nba_data.py
+4. Run 28-Point Logic Engine: python3 auto_iq_engine.py
+5. Generate JSONL dataset for OpenAI: python3 28point.py
+
+
